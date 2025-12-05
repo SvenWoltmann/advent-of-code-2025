@@ -1,5 +1,11 @@
 # Advent of Code 2025 – Java 25 Solutions
 
+[![Build](https://github.com/SvenWoltmann/advent-of-code-2025/actions/workflows/build.yml/badge.svg)](https://github.com/SvenWoltmann/advent-of-code-2025/actions/workflows/build.yml)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_advent-of-code-2025&metric=coverage)](https://sonarcloud.io/dashboard?id=SvenWoltmann_advent-of-code-2025)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_advent-of-code-2025&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_advent-of-code-2025)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_advent-of-code-2025&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_advent-of-code-2025)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_advent-of-code-2025&metric=security_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_advent-of-code-2025)
+
 My solutions for [Advent of Code 2025](https://adventofcode.com/2025) in modern Java. My goal is to implement the solutions as clearly as possible—not necessarily as “clever” or short as possible.
 
 You can find explanations for all solutions in my [Advent of Code 2025 Solutions](https://www.happycoders.eu/algorithms/advent-of-code-2025/) article.
