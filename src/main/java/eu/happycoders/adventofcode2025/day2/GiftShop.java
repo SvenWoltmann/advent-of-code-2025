@@ -1,6 +1,7 @@
 package eu.happycoders.adventofcode2025.day2;
 
-import java.util.stream.LongStream;
+import eu.happycoders.adventofcode2025.common.Range;
+
 import java.util.stream.Stream;
 
 final class GiftShop {
@@ -9,21 +10,10 @@ final class GiftShop {
 
   static long solve(String input, int maxRepetitions) {
     return Stream.of(input.split(","))
-        .map(GiftShop::parseRange)
+        .map(Range::parse)
         .flatMapToLong(Range::ids)
         .filter(id -> isInvalidId(id, maxRepetitions))
         .sum();
-  }
-
-  private static Range parseRange(String range) {
-    String[] split = range.split("-");
-    return new Range(Long.parseLong(split[0]), Long.parseLong(split[1]));
-  }
-
-  private record Range(long from, long to) {
-    private LongStream ids() {
-      return LongStream.rangeClosed(from, to);
-    }
   }
 
   private static boolean isInvalidId(long id, int maxRepetitions) {
