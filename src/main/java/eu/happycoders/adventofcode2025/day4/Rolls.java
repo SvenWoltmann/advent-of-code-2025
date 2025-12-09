@@ -1,5 +1,7 @@
 package eu.happycoders.adventofcode2025.day4;
 
+import eu.happycoders.adventofcode2025.common.Position;
+
 import java.util.ArrayList;
 import java.util.List;
 
