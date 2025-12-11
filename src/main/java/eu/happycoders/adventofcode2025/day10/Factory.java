@@ -12,4 +12,11 @@ final class Factory {
         .mapToInt(Machine::solvePart1)
         .sum();
   }
+
+  static long solvePart2(List<String> input) {
+    return input.stream()
+        .map(Machine::parse)
+        .mapToInt(Machine::solvePart2)
+        .sum();
+  }
 }

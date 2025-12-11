@@ -9,11 +9,13 @@ import java.util.stream.Stream;
 final class Machine {
   private final Lights lightsGoal;
   private final List<ButtonWiring> buttonWirings;
+  private final int numButtonWirings;
   private final int[] joltageGoal;
 
   private Machine(Lights lightsGoal, List<ButtonWiring> buttonWirings, int[] joltageGoal) {
     this.lightsGoal = lightsGoal;
     this.buttonWirings = buttonWirings;
+    this.numButtonWirings = buttonWirings.size();
     this.joltageGoal = joltageGoal;
   }
 
@@ -43,7 +45,7 @@ final class Machine {
     while (!queue.isEmpty()) {
       ComputationState state = queue.remove();
 
-      for (int i = state.buttonIndex(); i < buttonWirings.size(); i++) {
+      for (int i = state.buttonIndex(); i < numButtonWirings; i++) {
         Lights lights = state.lights().toggle(buttonWirings.get(i));
         if (lights.equals(lightsGoal)) {
           return state.depth() + 1;
@@ -57,5 +59,46 @@ final class Machine {
   }
 
   private record ComputationState(Lights lights, int buttonIndex, int depth) {
+  }
+
+  int solvePart2() {
+    int[][] matrix = createMatrix();
+
+    List<int[]> solutions = new GaussianElimination(matrix).solve();
+    if (solutions.isEmpty()) {
+      throw new IllegalStateException("No solutions found");
+    }
+
+    return getMinSteps(solutions);
+  }
+
+  private int[][] createMatrix() {
+    int numRows = joltageGoal.length;
+    int numCols = buttonWirings.size();
+
+    int[][] matrix = new int[numRows][numCols + 1];
+
+    for (int cols = 0; cols < numCols; cols++) {
+      ButtonWiring buttonWiring = buttonWirings.get(cols);
+      for (int lightIndex : buttonWiring.indices()) {
+        matrix[lightIndex][cols] = 1;
+      }
+    }
+    for (int row = 0; row < numRows; row++) {
+      matrix[row][numCols] = joltageGoal[row];
+    }
+    return matrix;
+  }
+
+  private static int getMinSteps(List<int[]> solutions) {
+    int minSteps = Integer.MAX_VALUE;
+    for (int[] solution : solutions) {
+      int sum = 0;
+      for (int i = 0; i < solution.length; i++) {
+        sum += solution[i];
+      }
+      if (sum < minSteps) minSteps = sum;
+    }
+    return minSteps;
   }
 }

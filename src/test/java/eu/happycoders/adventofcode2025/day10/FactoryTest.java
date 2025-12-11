@@ -18,9 +18,9 @@ class FactoryTest {
     assertThat(solution).isEqualTo(7);
   }
 
-  // @Test
-  // void givenInput_whenSolvePart2_thenReturnsCorrectResult() {
-  //   long solution = Factory.solvePart2(INPUT);
-  //   assertThat(solution).isEqualTo(33);
-  // }
+  @Test
+  void givenInput_whenSolvePart2_thenReturnsCorrectResult() {
+    long solution = Factory.solvePart2(INPUT);
+    assertThat(solution).isEqualTo(33);
+  }
 }
