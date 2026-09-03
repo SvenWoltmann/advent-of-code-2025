@@ -47,7 +47,8 @@ record Tree(int width, int height, int[] presentCounts) {
       return false;
     }
 
-    int numberOfPresentsThatWouldFitRegardlessOfTheirShape = (width / maxWidth) * (height / maxHeight);
+    int numberOfPresentsThatWouldFitRegardlessOfTheirShape =
+        (width / maxWidth) * (height / maxHeight);
     if (presentsToFit.size() <= numberOfPresentsThatWouldFitRegardlessOfTheirShape) {
       return true;
     }

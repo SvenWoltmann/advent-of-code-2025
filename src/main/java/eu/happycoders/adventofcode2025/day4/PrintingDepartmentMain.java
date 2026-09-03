@@ -1,13 +1,11 @@
 package eu.happycoders.adventofcode2025.day4;
 
+import static eu.happycoders.adventofcode2025.common.InputReader.readInput;
 
 import java.util.List;
 
-import static eu.happycoders.adventofcode2025.common.InputReader.readInput;
-
 final class PrintingDepartmentMain {
-  private PrintingDepartmentMain() {
-  }
+  private PrintingDepartmentMain() {}
 
   static void main() {
     List<String> input = readInput("day4/input.txt");

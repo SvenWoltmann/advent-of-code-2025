@@ -1,8 +1,8 @@
 package eu.happycoders.adventofcode2025.common;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 class RangeTest {
 
@@ -15,7 +15,6 @@ class RangeTest {
     assertThat(range.from()).isEqualTo(5);
     assertThat(range.to()).isEqualTo(10);
   }
-
 
   @Test
   void givenRange1EqualsRange2_whenTryMergeWith_thenReturnsRange1() {

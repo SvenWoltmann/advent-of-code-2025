@@ -1,12 +1,11 @@
 package eu.happycoders.adventofcode2025.day1;
 
-import java.util.List;
-
 import static eu.happycoders.adventofcode2025.common.InputReader.readInput;
 
+import java.util.List;
+
 final class SecretEntranceMain {
-  private SecretEntranceMain() {
-  }
+  private SecretEntranceMain() {}
 
   static void main() {
     List<String> input = readInput("day1/input.txt");

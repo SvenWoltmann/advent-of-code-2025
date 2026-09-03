@@ -1,23 +1,13 @@
 package eu.happycoders.adventofcode2025.day5;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
 class CafeteriaTest {
-  private static final List<String> INPUT = List.of(
-      "3-5",
-      "10-14",
-      "16-20",
-      "12-18",
-      "",
-      "1",
-      "5",
-      "8",
-      "11",
-      "17");
+  private static final List<String> INPUT =
+      List.of("3-5", "10-14", "16-20", "12-18", "", "1", "5", "8", "11", "17");
 
   @Test
   void givenInput_whenSolvePart1_thenReturnsCorrectResult() {

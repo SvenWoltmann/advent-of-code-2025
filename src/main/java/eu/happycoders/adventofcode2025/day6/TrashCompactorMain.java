@@ -1,12 +1,11 @@
 package eu.happycoders.adventofcode2025.day6;
 
-import java.util.List;
-
 import static eu.happycoders.adventofcode2025.common.InputReader.readInput;
 
+import java.util.List;
+
 final class TrashCompactorMain {
-  private TrashCompactorMain() {
-  }
+  private TrashCompactorMain() {}
 
   static void main() {
     List<String> input = readInput("day6/input.txt");

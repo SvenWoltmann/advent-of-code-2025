@@ -3,8 +3,7 @@ package eu.happycoders.adventofcode2025.day4;
 import java.util.List;
 
 final class RollsParser {
-  private RollsParser() {
-  }
+  private RollsParser() {}
 
   static Rolls parse(List<String> input) {
     int height = input.size();

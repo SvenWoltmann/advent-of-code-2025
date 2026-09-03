@@ -18,10 +18,12 @@ class VisitedInfo {
 
   void add(VisitedInfo other, boolean dac, boolean fft) {
     if (dac) {
-      pathsWithBothFoundFromHere += other.pathsWithBothFoundFromHere + other.pathsWithOnlyFftFromHere;
+      pathsWithBothFoundFromHere +=
+          other.pathsWithBothFoundFromHere + other.pathsWithOnlyFftFromHere;
       pathsWithOnlyDacFromHere += other.pathsWithOnlyDacFromHere + other.pathsWithNoneFromHere;
     } else if (fft) {
-      pathsWithBothFoundFromHere += other.pathsWithBothFoundFromHere + other.pathsWithOnlyDacFromHere;
+      pathsWithBothFoundFromHere +=
+          other.pathsWithBothFoundFromHere + other.pathsWithOnlyDacFromHere;
       pathsWithOnlyFftFromHere += other.pathsWithOnlyFftFromHere + other.pathsWithNoneFromHere;
     } else {
       pathsWithBothFoundFromHere += other.pathsWithBothFoundFromHere;
@@ -37,8 +39,8 @@ class VisitedInfo {
 
   long totalPaths() {
     return pathsWithBothFoundFromHere
-           + pathsWithOnlyDacFromHere
-           + pathsWithOnlyFftFromHere
-           + pathsWithNoneFromHere;
+        + pathsWithOnlyDacFromHere
+        + pathsWithOnlyFftFromHere
+        + pathsWithNoneFromHere;
   }
 }

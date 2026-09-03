@@ -1,18 +1,14 @@
 package eu.happycoders.adventofcode2025.day3;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 class LobbyTest {
 
   private static final List<String> INPUT =
-      List.of("987654321111111",
-          "811111111111119",
-          "234234234234278",
-          "818181911112111");
+      List.of("987654321111111", "811111111111119", "234234234234278", "818181911112111");
 
   @Test
   void givenInput_whenSolvePart1_thenReturnsCorrectResult() {

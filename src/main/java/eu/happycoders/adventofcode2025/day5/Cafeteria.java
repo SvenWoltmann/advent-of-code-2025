@@ -2,20 +2,17 @@ package eu.happycoders.adventofcode2025.day5;
 
 import eu.happycoders.adventofcode2025.common.Range;
 import eu.happycoders.adventofcode2025.common.RangeSet;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 final class Cafeteria {
-  private Cafeteria() {
-  }
+  private Cafeteria() {}
 
   static long solvePart1(List<String> lines) {
     Input input = parseInput(lines);
 
-    return input.ingredientIds()
-        .stream()
+    return input.ingredientIds().stream()
         .filter(ingredientId -> input.freshIngredientRanges().contains(ingredientId))
         .count();
   }
@@ -23,10 +20,7 @@ final class Cafeteria {
   static long solvePart2(List<String> lines) {
     Input input = parseInput(lines);
 
-    return input.freshIngredientRanges()
-        .stream()
-        .mapToLong(Range::getSizeIncluding)
-        .sum();
+    return input.freshIngredientRanges().stream().mapToLong(Range::getSizeIncluding).sum();
   }
 
   private static Input parseInput(List<String> lines) {
@@ -50,6 +44,5 @@ final class Cafeteria {
     return new Input(freshIngredientRanges, ingredientIds);
   }
 
-  private record Input(RangeSet freshIngredientRanges, List<Long> ingredientIds) {
-  }
+  private record Input(RangeSet freshIngredientRanges, List<Long> ingredientIds) {}
 }

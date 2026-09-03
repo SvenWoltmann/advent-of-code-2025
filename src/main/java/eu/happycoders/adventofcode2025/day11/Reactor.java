@@ -1,19 +1,18 @@
 package eu.happycoders.adventofcode2025.day11;
 
-
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 final class Reactor {
-  private Reactor() {
-  }
+  private Reactor() {}
 
   static long solvePart1(List<String> input) {
-    Map<String, Device> map = input.stream()
-        .map(Device::parse)
-        .collect(Collectors.toMap(Device::name, Function.identity()));
+    Map<String, Device> map =
+        input.stream()
+            .map(Device::parse)
+            .collect(Collectors.toMap(Device::name, Function.identity()));
 
     Device start = map.get("you");
 
@@ -21,9 +20,10 @@ final class Reactor {
   }
 
   static long solvePart2(List<String> input) {
-    Map<String, Device> map = input.stream()
-        .map(Device::parse)
-        .collect(Collectors.toMap(Device::name, Function.identity()));
+    Map<String, Device> map =
+        input.stream()
+            .map(Device::parse)
+            .collect(Collectors.toMap(Device::name, Function.identity()));
 
     Device start = map.get("svr");
 

@@ -1,23 +1,23 @@
 package eu.happycoders.adventofcode2025.day4;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
 class PrintingDepartmentTest {
-  private static final List<String> INPUT = List.of(
-      "..@@.@@@@.",
-      "@@@.@.@.@@",
-      "@@@@@.@.@@",
-      "@.@@@@..@.",
-      "@@.@@@@.@@",
-      ".@@@@@@@.@",
-      ".@.@.@.@@@",
-      "@.@@@.@@@@",
-      ".@@@@@@@@.",
-      "@.@.@@@.@.");
+  private static final List<String> INPUT =
+      List.of(
+          "..@@.@@@@.",
+          "@@@.@.@.@@",
+          "@@@@@.@.@@",
+          "@.@@@@..@.",
+          "@@.@@@@.@@",
+          ".@@@@@@@.@",
+          ".@.@.@.@@@",
+          "@.@@@.@@@@",
+          ".@@@@@@@@.",
+          "@.@.@@@.@.");
 
   @Test
   void givenInput_whenSolvePart1_thenReturnsCorrectResult() {

@@ -8,8 +8,7 @@ final class WorksheetParser {
 
   private static final Pattern PATTERN = Pattern.compile("\\s+");
 
-  private WorksheetParser() {
-  }
+  private WorksheetParser() {}
 
   static List<Problem> parseWorksheet(List<String> lines, boolean numbersInColumns) {
     List<Problem> problems = new ArrayList<>();

@@ -63,8 +63,8 @@ class GaussianElimination {
       for (int solutionIndex = 0; solutionIndex < numSolutions; solutionIndex++) {
         int[] factors = solutions.get(solutionIndex);
 
-        findSolutionsForRowAndFactors(currentRow, factors,
-            new SolutionsContext(solutions, invalidSolutions, solutionIndex));
+        findSolutionsForRowAndFactors(
+            currentRow, factors, new SolutionsContext(solutions, invalidSolutions, solutionIndex));
       }
 
       for (int s : invalidSolutions.reversed()) {
@@ -139,7 +139,6 @@ class GaussianElimination {
     return initialFactors;
   }
 
-
   private boolean isAllZero(int[] row) {
     for (int i = 0; i < numColumnsExceptSum; i++) {
       if (row[i] != 0) {
@@ -149,7 +148,8 @@ class GaussianElimination {
     return true;
   }
 
-  private void findSolutionsForRowAndFactors(int[] currentRow, int[] factors, SolutionsContext solutionsContext) {
+  private void findSolutionsForRowAndFactors(
+      int[] currentRow, int[] factors, SolutionsContext solutionsContext) {
     List<Integer> nonZeroColsWithoutFactor = new ArrayList<>();
     int sum = 0;
     for (int i = 0; i < numColumnsExceptSum; i++) {
@@ -163,19 +163,27 @@ class GaussianElimination {
     int numberWeNeedToReach = currentRow[numColumnsExceptSum] - sum;
 
     if (nonZeroColsWithoutFactor.size() == 3) {
-      findSolutionTriplets(currentRow, factors, solutionsContext, nonZeroColsWithoutFactor, numberWeNeedToReach);
+      findSolutionTriplets(
+          currentRow, factors, solutionsContext, nonZeroColsWithoutFactor, numberWeNeedToReach);
     } else if (nonZeroColsWithoutFactor.size() == 2) {
-      findSolutionTuples(currentRow, factors, solutionsContext, nonZeroColsWithoutFactor, numberWeNeedToReach);
+      findSolutionTuples(
+          currentRow, factors, solutionsContext, nonZeroColsWithoutFactor, numberWeNeedToReach);
     } else if (nonZeroColsWithoutFactor.size() == 1) {
-      findSingleSolution(currentRow, factors, solutionsContext, nonZeroColsWithoutFactor, numberWeNeedToReach);
+      findSingleSolution(
+          currentRow, factors, solutionsContext, nonZeroColsWithoutFactor, numberWeNeedToReach);
     } else {
       throw new IllegalStateException(
-          "Unhandled number of non-zero columns without a factor: " + nonZeroColsWithoutFactor.size());
+          "Unhandled number of non-zero columns without a factor: "
+              + nonZeroColsWithoutFactor.size());
     }
   }
 
-  private void findSolutionTriplets(int[] currentRow, int[] factors, SolutionsContext solutionsContext,
-                                    List<Integer> nonZeroColsWithoutFactor, int numberWeNeedToReach) {
+  private void findSolutionTriplets(
+      int[] currentRow,
+      int[] factors,
+      SolutionsContext solutionsContext,
+      List<Integer> nonZeroColsWithoutFactor,
+      int numberWeNeedToReach) {
     int index1 = nonZeroColsWithoutFactor.get(0);
     int index2 = nonZeroColsWithoutFactor.get(1);
     int index3 = nonZeroColsWithoutFactor.get(2);
@@ -188,19 +196,26 @@ class GaussianElimination {
 
     for (int factor1 = 0; factor1 <= max1; factor1++) {
       for (int factor2 = 0; factor2 <= max2; factor2++) {
-        double factor3 = divide(numberWeNeedToReach - factor1 * currentRow[index1] - factor2 * currentRow[index2],
-            currentRow[index3]);
+        double factor3 =
+            divide(
+                numberWeNeedToReach - factor1 * currentRow[index1] - factor2 * currentRow[index2],
+                currentRow[index3]);
         if (factor3 >= 0 && factor3 instanceof int f3 && f3 <= max3) {
-          possibleCombinations.add(new int[]{factor1, factor2, f3});
+          possibleCombinations.add(new int[] {factor1, factor2, f3});
         }
       }
     }
 
-    addPossibleCombinations(possibleCombinations, factors, solutionsContext, index1, index2, index3);
+    addPossibleCombinations(
+        possibleCombinations, factors, solutionsContext, index1, index2, index3);
   }
 
-  private void findSolutionTuples(int[] currentRow, int[] factors, SolutionsContext solutionsContext,
-                                  List<Integer> nonZeroColsWithoutFactor, int numberWeNeedToReach) {
+  private void findSolutionTuples(
+      int[] currentRow,
+      int[] factors,
+      SolutionsContext solutionsContext,
+      List<Integer> nonZeroColsWithoutFactor,
+      int numberWeNeedToReach) {
     int index1 = nonZeroColsWithoutFactor.get(0);
     int index2 = nonZeroColsWithoutFactor.get(1);
 
@@ -210,17 +225,22 @@ class GaussianElimination {
     List<int[]> possibleCombinations = new ArrayList<>();
 
     for (int factor1 = 0; factor1 <= max1; factor1++) {
-      double factor2 = divide(numberWeNeedToReach - factor1 * currentRow[index1], currentRow[index2]);
+      double factor2 =
+          divide(numberWeNeedToReach - factor1 * currentRow[index1], currentRow[index2]);
       if (factor2 >= 0 && factor2 instanceof int f2 && f2 <= max2) {
-        possibleCombinations.add(new int[]{factor1, f2});
+        possibleCombinations.add(new int[] {factor1, f2});
       }
     }
 
     addPossibleCombinations(possibleCombinations, factors, solutionsContext, index1, index2);
   }
 
-  private static void findSingleSolution(int[] currentRow, int[] factors, SolutionsContext solutionsContext,
-                                         List<Integer> nonZeroColsWithoutFactor, int numberWeNeedToReach) {
+  private static void findSingleSolution(
+      int[] currentRow,
+      int[] factors,
+      SolutionsContext solutionsContext,
+      List<Integer> nonZeroColsWithoutFactor,
+      int numberWeNeedToReach) {
     int index = nonZeroColsWithoutFactor.getFirst();
     double factor = divide(numberWeNeedToReach, currentRow[index]);
     if (factor instanceof int f && f >= 0) {
@@ -230,10 +250,11 @@ class GaussianElimination {
     }
   }
 
-  private static void addPossibleCombinations(List<int[]> possibleCombinations,
-                                              int[] factors,
-                                              SolutionsContext solutionsContext,
-                                              int... indices) {
+  private static void addPossibleCombinations(
+      List<int[]> possibleCombinations,
+      int[] factors,
+      SolutionsContext solutionsContext,
+      int... indices) {
     if (possibleCombinations.isEmpty()) {
       solutionsContext.markCurrentSolutionAsInvalid();
       return;
@@ -257,7 +278,8 @@ class GaussianElimination {
     }
   }
 
-  private record SolutionsContext(List<int[]> solutions, List<Integer> invalidSolutions, int solutionIndex) {
+  private record SolutionsContext(
+      List<int[]> solutions, List<Integer> invalidSolutions, int solutionIndex) {
     void addSolution(int[] newFactors) {
       solutions.add(newFactors);
     }

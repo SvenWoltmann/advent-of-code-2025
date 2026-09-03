@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 final class Playground {
-  private Playground() {
-  }
+  private Playground() {}
 
   static long solvePart1(List<String> input, int iterations) {
     List<Point3D> points = input.stream().map(Point3D::parse).toList();

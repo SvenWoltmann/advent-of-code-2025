@@ -58,8 +58,7 @@ final class Machine {
     throw new IllegalStateException("No solution found");
   }
 
-  private record ComputationState(Lights lights, int buttonIndex, int depth) {
-  }
+  private record ComputationState(Lights lights, int buttonIndex, int depth) {}
 
   int solvePart2() {
     int[][] matrix = createMatrix();

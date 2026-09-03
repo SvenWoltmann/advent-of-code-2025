@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 final class Laboratories {
-  private Laboratories() {
-  }
+  private Laboratories() {}
 
   static long solve(List<String> input, boolean countTachyons) {
     long[] tachyons = createInitialTachyon(input.getFirst());
@@ -56,7 +55,7 @@ final class Laboratories {
     return new SplitResult(splitResult, splitCount);
   }
 
-  @SuppressWarnings("squid:S6218") // Using this only as a result, we will never compare two instances
-  private record SplitResult(long[] tachyons, int splitCount) {
-  }
+  @SuppressWarnings(
+      "squid:S6218") // Using this only as a result, we will never compare two instances
+  private record SplitResult(long[] tachyons, int splitCount) {}
 }

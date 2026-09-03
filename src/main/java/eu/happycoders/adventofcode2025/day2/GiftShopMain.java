@@ -3,8 +3,7 @@ package eu.happycoders.adventofcode2025.day2;
 import static eu.happycoders.adventofcode2025.common.InputReader.readInput;
 
 final class GiftShopMain {
-  private GiftShopMain() {
-  }
+  private GiftShopMain() {}
 
   static void main() {
     String input = readInput("day2/input.txt").getFirst();

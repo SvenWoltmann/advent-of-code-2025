@@ -1,12 +1,11 @@
 package eu.happycoders.adventofcode2025.day10;
 
-import java.util.List;
-
 import static eu.happycoders.adventofcode2025.common.InputReader.readInput;
 
+import java.util.List;
+
 final class FactoryMain {
-  private FactoryMain() {
-  }
+  private FactoryMain() {}
 
   static void main() {
     List<String> input = readInput("day10/input.txt");

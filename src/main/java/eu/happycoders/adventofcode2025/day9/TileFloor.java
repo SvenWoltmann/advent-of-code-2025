@@ -1,7 +1,6 @@
 package eu.happycoders.adventofcode2025.day9;
 
 import eu.happycoders.adventofcode2025.common.Position;
-
 import java.util.LinkedHashSet;
 import java.util.List;
 
@@ -34,7 +33,8 @@ class TileFloor {
       }
     }
 
-    byte[][] result = new byte[maxRow + 1 + 2][]; // Add 2 for margin (so we can flood-fill the outside)
+    byte[][] result =
+        new byte[maxRow + 1 + 2][]; // Add 2 for margin (so we can flood-fill the outside)
     for (int row = 0; row < maxRow + 1 + 2; row++) {
       result[row] = new byte[maxCol + 1 + 2]; // Add 2 for margin (so we can flood-fill the outside)
     }
@@ -49,7 +49,8 @@ class TileFloor {
     return result;
   }
 
-  private static void addRedTile(CompressedPosition redTile, CompressedPosition previousRedTile, byte[][] result) {
+  private static void addRedTile(
+      CompressedPosition redTile, CompressedPosition previousRedTile, byte[][] result) {
     int col = redTile.compressedCol();
     int row = redTile.compressedRow();
 

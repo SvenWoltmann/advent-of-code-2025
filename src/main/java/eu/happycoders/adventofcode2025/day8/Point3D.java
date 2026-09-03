@@ -4,7 +4,8 @@ public record Point3D(long x, long y, long z) {
 
   public static Point3D parse(String s) {
     String[] split = s.split(",");
-    return new Point3D(Long.parseLong(split[0]), Long.parseLong(split[1]), Long.parseLong(split[2]));
+    return new Point3D(
+        Long.parseLong(split[0]), Long.parseLong(split[1]), Long.parseLong(split[2]));
   }
 
   public double distanceTo(Point3D other) {

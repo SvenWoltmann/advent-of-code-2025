@@ -26,9 +26,7 @@ public class RangeSet {
   }
 
   public boolean contains(long value) {
-    return disjointRanges
-        .stream()
-        .anyMatch(range -> range.contains(value));
+    return disjointRanges.stream().anyMatch(range -> range.contains(value));
   }
 
   public Stream<Range> stream() {

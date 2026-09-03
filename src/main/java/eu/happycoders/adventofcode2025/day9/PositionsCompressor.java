@@ -1,7 +1,6 @@
 package eu.happycoders.adventofcode2025.day9;
 
 import eu.happycoders.adventofcode2025.common.Position;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,8 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 final class PositionsCompressor {
-  private PositionsCompressor() {
-  }
+  private PositionsCompressor() {}
 
   static List<CompressedPosition> compress(List<Position> positions) {
     Set<Integer> rows = new HashSet<>();
@@ -26,9 +24,11 @@ final class PositionsCompressor {
     Map<Integer, Integer> colIndices = getIndexMap(cols);
 
     return positions.stream()
-        .map(position -> new CompressedPosition(
-            position.row(), position.col(),
-            rowIndices.get(position.row()), colIndices.get(position.col())))
+        .map(
+            position ->
+                new CompressedPosition(
+                    position.row(), position.col(),
+                    rowIndices.get(position.row()), colIndices.get(position.col())))
         .toList();
   }
 

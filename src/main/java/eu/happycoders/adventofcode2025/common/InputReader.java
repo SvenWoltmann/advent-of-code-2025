@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class InputReader {
-  private InputReader() {
-  }
+  private InputReader() {}
 
   public static List<String> readInput(String name) {
     try {
@@ -26,8 +25,8 @@ public final class InputReader {
     List<String> result = new ArrayList<>();
 
     try (InputStream inputStream = classLoader.getResourceAsStream(name);
-         InputStreamReader in = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-         BufferedReader reader = new BufferedReader(in)) {
+        InputStreamReader in = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(in)) {
       String line;
       while ((line = reader.readLine()) != null) {
         result.add(line);

@@ -3,8 +3,7 @@ package eu.happycoders.adventofcode2025.day1;
 import java.util.List;
 
 final class SecretEntrance {
-  private SecretEntrance() {
-  }
+  private SecretEntrance() {}
 
   private static final int STARTING_POSITION = 50;
   private static final int DIAL_SIZE = 100;
